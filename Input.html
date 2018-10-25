@@ -28,3 +28,11 @@ To get input from the user in powershell use the Read-Host command
 $VARIABLE_NAME = Read-Host 'INPUT PROMPT'
 
 </div>
+  
+To get input that is censored with asterisks (i.e. a password)
+<div class="w3-code htmlHigh">
+
+$VARIABLE_NAME = Read-Host 'INPUT PROMPT' -AsSecureString
+
+</div>
+  
