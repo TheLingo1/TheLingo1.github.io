@@ -1,2 +1,2 @@
 # Powershell-website
-READ THE TITLE
+This is a website made to be a basic guide to Powershell and its commands.
