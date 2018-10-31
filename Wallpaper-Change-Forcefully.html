@@ -1,1 +1,67 @@
-test
+<!DOCTYPE html>
+<html>
+<title>Poweshell Key</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+
+<header class="w3-container w3-indigo">
+  <h1>Wallaper</h1>
+</header>
+
+<div class="w3-bar w3-black">
+  <a href="#" class="w3-bar-item w3-white" style="text-decoration:none">Home Page</a>
+  <div class="w3-dropdown-hover">
+    <button class="w3-button">I/O</button>
+    <div class="w3-dropdown-content w3-bar-block w3-card-4">
+      <a href="Input.html" class="w3-bar-item w3-hover-dark-grey w3-button" style="text-decoration:none">Input</a>
+      <a href="Output.html" class="w3-bar-item w3-hover-dark-grey w3-button" style="text-decoration:none">Output</a>
+    </div>
+   </div>
+  
+   <div class="w3-dropdown-hover">
+     <button class="w3-button">Misc</button>
+       <div class="w3-dropdown-content w3-bar-block w3-card-4">
+         <a href="Wallpaper-Change-Forcefully.html" class="w3-bar-item w3-hover-dark-grey w3-button" style="text-decoration:none">Wallpaper</a>
+     </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+This can let you change the wallpaper(even when it is blocked in the settings!)
+
+This is the code that lets you do this:
+
+<div class="w3-code htmlHigh">
+
+$setwallpapersrc = @"
+using System.Runtime.InteropServices;
+public class wallpaper
+{
+public const int SetDesktopWallpaper = 20;
+public const int UpdateIniFile = 0x01;
+public const int SendWinIniChange = 0x02;
+[DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+private static extern int SystemParametersInfo (int uAction, int uParam, string lpvParam, int fuWinIni);
+public static void SetWallpaper ( string path )
+{
+SystemParametersInfo( SetDesktopWallpaper, 0, path, UpdateIniFile | SendWinIniChange );
+}
+}
+"@
+Add-Type -TypeDefinition $setwallpapersrc
+[wallpaper]::SetWallpaper("DIRECTORY TO IMAGE")
+
+
+</div>
+  
+When using this make sure that you set the directory to the image(Prefferably a BMP image) so it changes instantly without the need for a restart.
+  
+To change an image to a BMP image simply open the image in paint and 'Save As' (In the 'File' menu) BMP image.
+
+Make suer that you save the image to the directory specified in the code.
