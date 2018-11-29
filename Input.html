@@ -47,4 +47,12 @@ To get input that is censored with asterisks (i.e. a password)
 $VARIABLE_NAME = Read-Host 'INPUT PROMPT' -AsSecureString
 
 </div>
-  
+
+This can convert the asterisks to normal text
+
+<div class="w3-code htmlHigh">
+
+[Runtime.InteropServices.Marshal]::PtrToStringAuto(
+    [Runtime.InteropServices.Marshal]::SecureStringToBSTR($VARIABLE_NAME))
+
+</div>
