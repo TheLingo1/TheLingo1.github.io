@@ -1,4 +1,2 @@
-# Powershell-website
-This is a website made to be a basic guide to Powershell and its commands. This project is obviously very incomplete right now and my main goal with this is to get better at HTML.
-
-
+# TheLingo1's github site
+This is a website made to be a basic portfolio and repository of the silly plugins that I make for Minecraft Bukkit/Spigot
